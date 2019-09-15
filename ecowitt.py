@@ -66,13 +66,15 @@ class Controller(polyinterface.Controller):
         super(Controller, self).__init__(polyglot)
         self.name = 'EcoWitt Controller'
         self.sensors = []
+        self.default_port = 8080
 
     def start(self):
         self.removeNoticesAll()
         LOGGER.info('Started Template NodeServer')
         self.check_params()
         # self.discover()
-        httpd = HTTPServer(('', 8080), SimpleHTTPRequestHandler)
+        # httpd = HTTPServer(('', 8080), SimpleHTTPRequestHandler)
+        httpd = HTTPServer(('', self.default_port), SimpleHTTPRequestHandler)
         httpd.serve_forever()
         # self.poly.add_custom_config_docs("<b>And this is some custom config data</b>")
 
@@ -103,29 +105,33 @@ class Controller(polyinterface.Controller):
         LOGGER.info("process_config: Exit");
 
     def check_params(self):
-        default_user = "YourUserName"
-        default_password = "YourPassword"
-        if 'user' in self.polyConfig['customParams']:
-            self.user = self.polyConfig['customParams']['user']
-        else:
-            self.user = default_user
-            LOGGER.error('check_params: user not defined in customParams, please add it.  Using {}'.format(self.user))
-            st = False
+        # default_user = "YourUserName"
+        # default_password = "YourPassword"
+        # if 'user' in self.polyConfig['customParams']:
+        #     self.user = self.polyConfig['customParams']['user']
+        # else:
+        #     self.user = default_user
+        #     LOGGER.error('check_params: user not defined in customParams, please add it.  Using {}'.format(self.user))
+        #     st = False
+        #
+        # if 'password' in self.polyConfig['customParams']:
+        #     self.password = self.polyConfig['customParams']['password']
+        # else:
+        #     self.password = default_password
+        #     LOGGER.error('check_params: password not defined in customParams, please add it.  Using {}'.format(self.password))
+        #     st = False
 
-        if 'password' in self.polyConfig['customParams']:
-            self.password = self.polyConfig['customParams']['password']
-        else:
-            self.password = default_password
-            LOGGER.error('check_params: password not defined in customParams, please add it.  Using {}'.format(self.password))
-            st = False
+        if 'port' in self.polyConfig['customParams']:
+            self.default_port = int(self.polyConfig['customParams']['port'])
 
         # Make sure they are in the params
-        self.addCustomParam({'password': self.password, 'user': self.user, 'some_example': '{ "type": "TheType", "host": "host_or_IP", "port": "port_number" }'})
+        # self.addCustomParam({'password': self.password, 'user': self.user, 'some_example': '{ "type": "TheType", "host": "host_or_IP", "port": "port_number" }'})
+        self.addCustomParam({'port': self.default_port})
 
         # Add a notice if they need to change the user/password from the default.
-        if self.user == default_user or self.password == default_password:
-            # This doesn't pass a key to test the old way.
-            self.addNotice('Please set proper user and password in configuration page, and restart this nodeserver')
+        # if self.user == default_user or self.password == default_password:
+        #     # This doesn't pass a key to test the old way.
+        #     self.addNotice('Please set proper user and password in configuration page, and restart this nodeserver')
 
 
     def remove_notice_test(self,command):
