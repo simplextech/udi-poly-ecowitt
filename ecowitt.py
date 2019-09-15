@@ -71,36 +71,18 @@ class Controller(polyinterface.Controller):
         self.removeNoticesAll()
         LOGGER.info('Started Template NodeServer')
         self.check_params()
-        self.discover()
+        # self.discover()
         httpd = HTTPServer(('', 8080), SimpleHTTPRequestHandler)
         httpd.serve_forever()
         # self.poly.add_custom_config_docs("<b>And this is some custom config data</b>")
 
     def shortPoll(self):
-        """
-        Optional.
-        This runs every 10 seconds. You would probably update your nodes either here
-        or longPoll. No need to Super this method the parent version does nothing.
-        The timer can be overriden in the server.json.
-        """
         pass
 
     def longPoll(self):
-        """
-        Optional.
-        This runs every 30 seconds. You would probably update your nodes either here
-        or shortPoll. No need to Super this method the parent version does nothing.
-        The timer can be overriden in the server.json.
-        """
         pass
 
     def query(self):
-        """
-        Optional.
-        By default a query to the control node reports the FULL driver set for ALL
-        nodes back to ISY. If you override this method you will need to Super or
-        issue a reportDrivers() to each node manually.
-        """
         self.check_params()
         for node in self.nodes:
             self.nodes[node].reportDrivers()
@@ -109,13 +91,7 @@ class Controller(polyinterface.Controller):
         pass
 
     def delete(self):
-        """
-        Example
-        This is sent by Polyglot upon deletion of the NodeServer. If the process is
-        co-resident and controlled by Polyglot, it will be terminiated within 5 seconds
-        of receiving this message.
-        """
-        LOGGER.info('Oh God I\'m being deleted. Nooooooooooooooooooooooooooooooooooooooooo.')
+        LOGGER.info('Removing EcoWitt Nodeserver')
 
     def stop(self):
         LOGGER.debug('NodeServer stopped.')
@@ -127,9 +103,6 @@ class Controller(polyinterface.Controller):
         LOGGER.info("process_config: Exit");
 
     def check_params(self):
-        """
-        This is an example if using custom Params for user and password and an example with a Dictionary
-        """
         default_user = "YourUserName"
         default_password = "YourPassword"
         if 'user' in self.polyConfig['customParams']:
@@ -176,13 +149,10 @@ class Controller(polyinterface.Controller):
             Indoor Sensor Nodes
             '''
             if k == 'tempinf':
-                # print(k)
                 ntype = 'indoor'
                 if ntype not in self.nodes:
                     self.addNode(IndoorNode(self, self.address, 'indoor', 'Indoor'))
-                    # print('node does not exist')
                 else:
-                    # print('Node Exists')
                     self.nodes['indoor'].setDriver('CLITEMP', sensors[k])
             if k == 'humidityin':
                 ntype = 'indoor'
@@ -636,41 +606,21 @@ class IndoorNode(polyinterface.Node):
         super(IndoorNode, self).__init__(controller, primary, address, name)
 
     def start(self):
-        """
-        Optional.
-        This method is run once the Node is successfully added to the ISY
-        and we get a return result from Polyglot. Only happens once.
-        """
         self.setDriver('ST', 1)
-        pass
 
     def query(self):
-        """
-        Called by ISY to report all drivers for this node. This is done in
-        the parent class, so you don't need to override this method unless
-        there is a need.
-        """
         self.reportDrivers()
 
     "Hints See: https://github.com/UniversalDevicesInc/hints"
-    hint = [1,2,3,4]
+    # hint = [1,2,3,4]
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'CLITEMP', 'value': 0, 'uom': 17},
         {'driver': 'CLIHUM', 'value': 0, 'uom': 22}
     ]
-    """
-    Optional.
-    This is an array of dictionary items containing the variable names(drivers)
-    values and uoms(units of measure) from ISY. This is how ISY knows what kind
-    of variable to display. Check the UOM's in the WSDK for a complete list.
-    UOM 2 is boolean so the ISY will display 'True/False'
-    """
+
     id = 'indoornode'
-    """
-    id of the node from the nodedefs.xml that is in the profile.zip. This tells
-    the ISY what fields and commands this node has.
-    """
+
     commands = {
                     # 'DON': setOn, 'DOF': setOff
                 }
@@ -688,7 +638,7 @@ class OutdoorNode(polyinterface.Node):
         self.reportDrivers()
 
     "Hints See: https://github.com/UniversalDevicesInc/hints"
-    hint = [1, 2, 3, 4]
+    # hint = [1, 2, 3, 4]
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'CLITEMP', 'value': 0, 'uom': 17},
@@ -717,7 +667,7 @@ class PressureNode(polyinterface.Node):
         self.reportDrivers()
 
     "Hints See: https://github.com/UniversalDevicesInc/hints"
-    hint = [1, 2, 3, 4]
+    # hint = [1, 2, 3, 4]
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'BARPRES', 'value': 0, 'uom': 23},
@@ -743,7 +693,7 @@ class RainNode(polyinterface.Node):
         self.reportDrivers()
 
     "Hints See: https://github.com/UniversalDevicesInc/hints"
-    hint = [1, 2, 3, 4]
+    # hint = [1, 2, 3, 4]
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'GV0', 'value': 0, 'uom': 105},  # Hourly Rain
@@ -775,7 +725,7 @@ class WindNode(polyinterface.Node):
         self.reportDrivers()
 
     "Hints See: https://github.com/UniversalDevicesInc/hints"
-    hint = [1, 2, 3, 4]
+    # hint = [1, 2, 3, 4]
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'WINDDIR', 'value': 0, 'uom': 76},  # Wind Direction (degree)
@@ -804,7 +754,7 @@ class WH31Node(polyinterface.Node):
         self.reportDrivers()
 
     "Hints See: https://github.com/UniversalDevicesInc/hints"
-    hint = [1, 2, 3, 4]
+    # hint = [1, 2, 3, 4]
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'CLITEMP', 'value': 0, 'uom': 17},
@@ -832,7 +782,7 @@ class WH51Node(polyinterface.Node):
         self.reportDrivers()
 
     "Hints See: https://github.com/UniversalDevicesInc/hints"
-    hint = [1, 2, 3, 4]
+    # hint = [1, 2, 3, 4]
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'MOIST', 'value': 0, 'uom': 22},
@@ -859,7 +809,7 @@ class WH41Node(polyinterface.Node):
         self.reportDrivers()
 
     "Hints See: https://github.com/UniversalDevicesInc/hints"
-    hint = [1, 2, 3, 4]
+    # hint = [1, 2, 3, 4]
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'GV0', 'value': 0, 'uom': 54},
@@ -888,8 +838,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         # response.write(body)
         # self.wfile.write(response.getvalue())
         # print(self.raw_requestline)
-        print("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
-                str(self.path), str(self.headers), body.decode('utf-8'))
+        # print("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
+        #         str(self.path), str(self.headers), body.decode('utf-8'))
         params = dict([p.split('=') for p in body.decode('utf-8').split('&')])
         control.add_nodes(params)
 
@@ -897,27 +847,9 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
 if __name__ == "__main__":
     try:
         polyglot = polyinterface.Interface('EcoWitt')
-        """
-        Instantiates the Interface to Polyglot.
-        The name doesn't really matter unless you are starting it from the
-        command line then you need a line Template=N
-        where N is the slot number.
-        """
         polyglot.start()
-        """
-        Starts MQTT and connects to Polyglot.
-        """
         control = Controller(polyglot)
-        """
-        Creates the Controller Node and passes in the Interface
-        """
         control.runForever()
-        """
-        Sits around and does nothing forever, keeping your program running.
-        """
     except (KeyboardInterrupt, SystemExit):
         polyglot.stop()
         sys.exit(0)
-        """
-        Catch SIGTERM or Control-C and exit cleanly.
-        """
