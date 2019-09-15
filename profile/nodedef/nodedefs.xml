@@ -1,0 +1,177 @@
+<nodeDefs>
+    <!-- NODE DEF from 5.0 document http://wiki.universal-devices.com/index.php?title=V50_MAIN -->
+    <!-- controller, this must mach the id in your Controller class-->
+    <nodeDef id="controller" nls="ctl">
+        <editors />
+        <sts>
+			<st id="ST" editor="bool" />
+		</sts>
+        <cmds>
+            <sends />
+            <accepts>
+              <cmd id="QUERY" />
+<!--              <cmd id="DISCOVER" />-->
+<!--              <cmd id="REMOVE_NOTICES_ALL" />-->
+<!--              <cmd id="REMOVE_NOTICE_TEST" />-->
+              <cmd id="UPDATE_PROFILE" />
+            </accepts>
+        </cmds>
+    </nodeDef>
+	<!-- templatenodeid -->
+    <nodeDef id="templatenodeid" nls="tmplnode">
+        <editors />
+        <sts>
+            <st id="ST" editor="bool" />
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+                <cmd id="DON" />
+                <cmd id="DOF" />
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <!-- templatenodeid -->
+    <nodeDef id="indoornode" nls="indoor">
+        <editors />
+        <sts>
+            <st id="ST" editor="bool" hide="True" />
+            <st id="CLITEMP" editor="CLITEMP" /> <!-- Temp -->
+            <st id="CLIHUM" editor="CLIHUM" /> <!-- Humidity -->
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+<!--                <cmd id="DON" />-->
+<!--                <cmd id="DOF" />-->
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <nodeDef id="outdoornode" nls="outdoor">
+        <editors />
+        <sts>
+            <st id="ST" editor="bool" hide="True" />
+            <st id="CLITEMP" editor="CLITEMP" /> <!-- Temp -->
+            <st id="CLIHUM" editor="CLIHUM" /> <!-- Humidity -->
+            <st id="UV" editor="UV" /> <!--UV -->
+            <st id="SOLRAD" editor="SOLRAD" /> <!--Solar Radiation -->
+            <st id="LUMIN" editor="LUMIN" /> <!--Luminance -->
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+<!--                <cmd id="DON" />-->
+<!--                <cmd id="DOF" />-->
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <nodeDef id="pressurenode" nls="pressure">
+        <editors />
+        <sts>
+            <st id="ST" editor="bool" hide="True" />
+            <st id="BARPRES" editor="INHG" /> <!--Rel Barometric Pressure -->
+            <st id="ATMPRES" editor="INHG" /> <!--Abs Barometric Pressure -->
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+<!--                <cmd id="DON" />-->
+<!--                <cmd id="DOF" />-->
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <nodeDef id="rainnode" nls="rain">
+        <editors />
+        <sts>
+            <st id="ST" editor="bool" hide="True" />
+            <st id="GV0" editor="INCH" /> <!--Hourly Rain Inches -->
+            <st id="GV1" editor="INCH" /> <!--Daily Rain Inches -->
+            <st id="GV2" editor="INCH" /> <!--Weekly Rain Inches -->
+            <st id="GV3" editor="INCH" /> <!--Monthly Rain Inches -->
+            <st id="GV4" editor="INCH" /> <!--Yearly Rain Inches -->
+            <st id="GV5" editor="INCH" /> <!--Total Rain Inches -->
+            <st id="GV6" editor="INCH" /> <!--Event Rain Inches -->
+            <st id="GV7" editor="INCH" /> <!--Rain Rate Inches -->
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+<!--                <cmd id="DON" />-->
+<!--                <cmd id="DOF" />-->
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <nodeDef id="windnode" nls="wind">
+        <editors />
+        <sts>
+            <st id="ST" editor="bool" hide="True" />
+            <st id="WINDDIR" editor="WINDDIR" /> <!--Wind Direction -->
+            <st id="GV0" editor="I_WIND_DIRECTION" /> <!--Wind Direction -->
+            <st id="SPEED" editor="mph" /> <!--Wind Speed MPH -->
+            <st id="GV1" editor="mph" /> <!--Wind Gust MPH -->
+            <st id="GV2" editor="mph" /> <!--Wind Max Daily Gust -->
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+<!--                <cmd id="DON" />-->
+<!--                <cmd id="DOF" />-->
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <nodeDef id="wh31node" nls="wh31">
+        <editors />
+        <sts>
+            <st id="ST" editor="bool" hide="True" />
+            <st id="CLITEMP" editor="CLITEMP" /> <!--Sensor Temperature -->
+            <st id="CLIHUM" editor="CLIHUM" /> <!--Sensor Humidity -->
+            <st id="BATLVL" editor="BATLVL" /> <!--Sensor Battery Level -->
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+<!--                <cmd id="DON" />-->
+<!--                <cmd id="DOF" />-->
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <nodeDef id="wh51node" nls="wh51">
+        <editors />
+        <sts>
+            <st id="ST" editor="bool" hide="True" />
+            <st id="MOIST" editor="MOIST" /> <!--Sensor Humidity -->
+            <st id="BATLVL" editor="BATLVL" /> <!--Sensor Battery Level -->
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+<!--                <cmd id="DON" />-->
+<!--                <cmd id="DOF" />-->
+            </accepts>
+        </cmds>
+    </nodeDef>
+
+    <nodeDef id="wh41node" nls="wh41">
+        <editors />
+        <sts>
+            <st id="ST" editor="bool" hide="True" />
+            <st id="GV0" editor="PPM" /> <!--Sensor PPM -->
+            <st id="GV1" editor="PPM" /> <!--Sensor PPM -->
+            <st id="BATLVL" editor="BATLVL" /> <!--Sensor Battery Level -->
+        </sts>
+        <cmds>
+            <sends />
+            <accepts>
+<!--                <cmd id="DON" />-->
+<!--                <cmd id="DOF" />-->
+            </accepts>
+        </cmds>
+    </nodeDef>
+</nodeDefs>

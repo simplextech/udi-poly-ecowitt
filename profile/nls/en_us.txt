@@ -1,0 +1,98 @@
+# controller
+ND-controller-NAME = EcoWitt Controller
+ND-controller-ICON = Weather
+CMD-ctl-QUERY-NAME = Query
+CMD-ctl-DISCOVER-NAME = Re-Discover
+CMD-ctl-UPDATE_PROFILE-NAME = Update Profile
+#CMD-ctl-REMOVE_NOTICES_ALL-NAME = Remove All Notices
+#CMD-ctl-REMOVE_NOTICE_TEST-NAME = Remove Notice Test
+ST-ctl-ST-NAME = NodeServer Online
+
+#indoor
+ND-indoornode-NAME = Indoor Conditions
+ND-indoornode-ICON = Weather
+ST-indoor-ST-NAME = Online
+ST-indoor-CLITEMP-NAME = Temperature
+ST-indoor-CLIHUM-NAME = Humidity
+
+#outdoor
+ND-outdoornode-NAME = Outdoor Conditions
+ND-outdoornode-ICON = Weather
+ST-outdoor-ST-NAME = Online
+ST-outdoor-CLITEMP-NAME = Temperature
+ST-outdoor-CLIHUM-NAME = Humidity
+ST-outdoor-UV-NAME = UV
+ST-outdoor-SOLRAD-NAME = Solar Radiation
+ST-outdoor-LUMIN-NAME = Luminance
+
+#pressure
+ND-pressurenode-NAME = Barometric Pressure
+ND-pressurenode-ICON = Weather
+ST-pressure-ST-NAME = Online
+ST-pressure-BARPRES-NAME = Rel Barometric Pressure
+ST-pressure-ATMPRES-NAME = Abs Barometric Pressure
+
+#rain
+ND-rainnode-NAME = Rain
+ND-rainnode-ICON = Weather
+ST-rain-ST-NAME = Online
+ST-rain-GV0-NAME = Hourly Rain
+ST-rain-GV1-NAME = Daily Rain
+ST-rain-GV2-NAME = Weekly Rain
+ST-rain-GV3-NAME = Monthly Rain
+ST-rain-GV4-NAME = Yearly Rain
+ST-rain-GV5-NAME = Total Rain
+ST-rain-GV6-NAME = Event Rain
+ST-rain-GV7-NAME = Rain Rate
+
+#wind
+ND-windnode-NAME = Wind
+ND-windnode-ICON = Weather
+ST-wind-ST-NAME = Online
+ST-wind-WINDDIR-NAME = Wind Direction (degree)
+ST-wind-SPEED-NAME = Wind Speed
+ST-wind-GV0-NAME = Wind Direction (cardinal)
+ST-wind-GV1-NAME = Wind Gust
+ST-wind-GV2-NAME = Wind Max Daily Gust
+
+# wh31
+ND-wh31node-NAME = Temperature / Humidity Sensor
+ND-wh31node-ICON = Input
+ST-wh31-ST-NAME = Online
+ST-wh31-CLITEMP-NAME = Temperature
+ST-wh31-CLIHUM-NAME = Humidity
+ST-wh31-BATLVL-NAME = Battery Level
+
+# wh51
+ND-wh51node-NAME = Soil Moisture Sensor
+ND-wh51node-ICON = Irrigation
+ST-wh51-ST-NAME = Online
+ST-wh51-MOIST-NAME = Humidity
+ST-wh51-BATLVL-NAME = Battery Level
+
+# wh41
+ND-wh41node-NAME = Air Quality Sensor
+ND-wh41node-ICON = Input
+ST-wh41-ST-NAME = Online
+ST-wh41-GV0-NAME = PPM
+ST-wh41-GV1-NAME = 24H Avg Air Quality
+ST-wh41-BATLVL-NAME = Battery Level
+
+# cardinal directions
+EN_WIND_DIRECTION-0 = N/A
+EN_WIND_DIRECTION-1 = North
+EN_WIND_DIRECTION-2 = North-Northeast
+EN_WIND_DIRECTION-3 = Northeast
+EN_WIND_DIRECTION-4 = East-Northeast
+EN_WIND_DIRECTION-5 = East
+EN_WIND_DIRECTION-6 = East-Southeast
+EN_WIND_DIRECTION-7 = Southeast
+EN_WIND_DIRECTION-8 = South-Southeast
+EN_WIND_DIRECTION-9 = South
+EN_WIND_DIRECTION-10 = South-Southwest
+EN_WIND_DIRECTION-11 = Southwest
+EN_WIND_DIRECTION-12 = West-Southwest
+EN_WIND_DIRECTION-13 = West
+EN_WIND_DIRECTION-14 = West-Northwest
+EN_WIND_DIRECTION-15 = Northwest
+EN_WIND_DIRECTION-16 = North-Northwest

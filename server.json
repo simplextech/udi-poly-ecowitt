@@ -1,0 +1,21 @@
+{
+    "name": "EcoWitt",
+    "docs": "https://github.com/simplextech/udi-poly-ecowitt",
+    "type": "python3",
+    "executable": "ecowitt.py",
+    "install": "install.sh",
+    "description": "EcoWitt PWS and Sensor Integration",
+    "notice": "",
+    "shortPoll": "120",
+    "longPoll": "240",
+    "credits": [
+        {
+            "title": "EcoWitt: a NodeServer for EcoWitt PWS/Sensor Integration",
+            "author": "Simplex Technology",
+            "version": "0.1.0",
+            "date": "September 15, 2019",
+            "source": "https://github.com/simplextech/udi-poly-ecowitt",
+            "license": "https://github.com/simplextech/udi-poly-ecowitt/blob/master/LICENSE"
+        }
+    ]
+}
