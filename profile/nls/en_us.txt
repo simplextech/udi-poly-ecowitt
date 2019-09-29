@@ -67,7 +67,7 @@ ST-wh31-BATLVL-NAME = Battery Level
 ND-wh51node-NAME = Soil Moisture Sensor
 ND-wh51node-ICON = Irrigation
 ST-wh51-ST-NAME = Online
-ST-wh51-MOIST-NAME = Humidity
+ST-wh51-MOIST-NAME = Moisture
 ST-wh51-BATLVL-NAME = Battery Level
 
 # wh41
