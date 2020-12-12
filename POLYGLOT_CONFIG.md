@@ -1,7 +1,14 @@
 
 # Configuration
 
-Configure the GW1000 or other receiver per the manual
+Configure the GW1000 or other receiver per the manual.
+
+This Nodeserver is a receiver for the data sent to it via a POST
+http call from the GW1000.  If the GW1000 is on a different network (VLAN)
+you will have to setup the routing/firewall rules for your environment.
+
+There is no polling or discovery done by the NodeServer.  Devices are created
+automatically from the data sent by the GW1000.
 
  1. After installing you need to configure the GW1000 per setup instructions and update the firmware.  Reference the GW1000 manual
  2. Go to Device List and select your device
