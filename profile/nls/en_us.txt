@@ -78,6 +78,10 @@ ST-wh41-GV0-NAME = PPM
 ST-wh41-GV1-NAME = 24H Avg Air Quality
 ST-wh41-BATLVL-NAME = Battery Level
 
+# Battery Level
+BATTERY-0 = Normal
+BATTERY-1 = Low
+
 # cardinal directions
 EN_WIND_DIRECTION-0 = N/A
 EN_WIND_DIRECTION-1 = North

@@ -5,7 +5,7 @@
     </editor>
 
 	<editor id="BATLVL">
-        <range uom="51" min="0" max="100" />
+        <range uom="25" subset="0,1" nls="BATTERY"/>
     </editor>
 
     <editor id="CLITEMP">

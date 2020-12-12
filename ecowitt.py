@@ -739,7 +739,7 @@ class WH31Node(polyinterface.Node):
         {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'CLITEMP', 'value': 0, 'uom': 17},
         {'driver': 'CLIHUM', 'value': 0, 'uom': 22},
-        {'driver': 'BATLVL', 'value': 0, 'uom': 51}
+        {'driver': 'BATLVL', 'value': 0, 'uom': 25}
     ]
 
     id = 'wh31node'
@@ -766,7 +766,7 @@ class WH51Node(polyinterface.Node):
     drivers = [
         {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'MOIST', 'value': 0, 'uom': 22},
-        {'driver': 'BATLVL', 'value': 0, 'uom': 51}
+        {'driver': 'BATLVL', 'value': 0, 'uom': 25}
     ]
 
     id = 'wh51node'
@@ -794,7 +794,7 @@ class WH41Node(polyinterface.Node):
         {'driver': 'ST', 'value': 0, 'uom': 2},
         {'driver': 'GV0', 'value': 0, 'uom': 54},
         {'driver': 'GV1', 'value': 0, 'uom': 54},
-        {'driver': 'BATLVL', 'value': 0, 'uom': 51}
+        {'driver': 'BATLVL', 'value': 0, 'uom': 25}
     ]
 
     id = 'wh41node'
@@ -810,8 +810,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         content_length = int(self.headers['Content-Length'])
         body = self.rfile.read(content_length)
-        self.send_response(200)
-        self.end_headers()
+        # self.send_response(200)
+        # self.end_headers()
         # response = BytesIO()
         # response.write(b'This is POST request. ')
         # response.write(b'Received: ')
