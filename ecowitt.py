@@ -99,8 +99,8 @@ class Controller(polyinterface.Controller):
     def process_config(self, config):
         # this seems to get called twice for every change, why?
         # What does config represent?
-        LOGGER.info("process_config: Enter config={}".format(config));
-        LOGGER.info("process_config: Exit");
+        LOGGER.info("process_config: Enter config={}".format(config))
+        LOGGER.info("process_config: Exit")
 
     def check_params(self):
         if 'port' in self.polyConfig['customParams']:
@@ -812,7 +812,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         body = self.rfile.read(content_length)
         self.send_response(200)
         self.end_headers()
-        response = BytesIO()
+        # response = BytesIO()
         # response.write(b'This is POST request. ')
         # response.write(b'Received: ')
         # response.write(body)
