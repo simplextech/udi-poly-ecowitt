@@ -12,7 +12,7 @@
         {
             "title": "EcoWitt: a NodeServer for EcoWitt PWS/Sensor Integration",
             "author": "Simplex Technology",
-            "version": "0.1.3",
+            "version": "0.1.4",
             "date": "September 15, 2019",
             "source": "https://github.com/simplextech/udi-poly-ecowitt",
             "license": "https://github.com/simplextech/udi-poly-ecowitt/blob/master/LICENSE"

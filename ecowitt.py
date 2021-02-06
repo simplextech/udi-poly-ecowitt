@@ -67,6 +67,7 @@ class Controller(polyinterface.Controller):
         self.name = 'EcoWitt Controller'
         self.sensors = []
         self.default_port = 8080
+        self.debug = False
 
     def start(self):
         self.removeNoticesAll()
@@ -105,7 +106,6 @@ class Controller(polyinterface.Controller):
     def check_params(self):
         if 'port' in self.polyConfig['customParams']:
             self.default_port = int(self.polyConfig['customParams']['port'])
-
         self.addCustomParam({'port': self.default_port})
 
     def remove_notice_test(self,command):
@@ -125,6 +125,9 @@ class Controller(polyinterface.Controller):
 
     def add_nodes(self, sensors):
         for k in sensors.keys():
+            if self.debug == True:
+                LOGGER.debug(k + ' : ' + sensors[k])
+            
             '''
             Indoor Sensor Nodes
             '''
@@ -818,8 +821,9 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         # response.write(body)
         # self.wfile.write(response.getvalue())
         # print(self.raw_requestline)
-        # print("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
-        #         str(self.path), str(self.headers), body.decode('utf-8'))
+        print("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
+            str(self.path), str(self.headers), body.decode('utf-8'))
+        
         params = dict([p.split('=') for p in body.decode('utf-8').split('&')])
         control.add_nodes(params)
 
