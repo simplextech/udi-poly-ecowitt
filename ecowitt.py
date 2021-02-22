@@ -823,8 +823,9 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         params = dict([p.split('=') for p in body.decode('utf-8').split('&')])
         control.add_nodes(params)
         
-        #self.send_response(200)
-        #self.end_headers()
+        self.send_response(200)
+        self.send_header("Content-type", "text/html")
+        self.end_headers()
 
 if __name__ == "__main__":
     try:
