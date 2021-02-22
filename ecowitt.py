@@ -823,6 +823,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         params = dict([p.split('=') for p in body.decode('utf-8').split('&')])
         control.add_nodes(params)
         
+        response = BytesIO()
+        
         self.send_response(200)
         response.write(body)
         self.end_headers()
