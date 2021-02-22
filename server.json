@@ -1,5 +1,5 @@
 {
-    "name": "EcoWitt",
+    "name": "EcoWitt-dev",
     "docs": "https://github.com/simplextech/udi-poly-ecowitt",
     "type": "python3",
     "executable": "ecowitt.py",
