@@ -824,7 +824,7 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         control.add_nodes(params)
         
         self.send_response(200)
-        self.send_header("Content-type", "text/html")
+        response.write(body)
         self.end_headers()
 
 if __name__ == "__main__":
