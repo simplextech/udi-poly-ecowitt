@@ -820,15 +820,11 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         # print(self.raw_requestline)
         print("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
             str(self.path), str(self.headers), body.decode('utf-8'))
-        
-        response = BytesIO()
-        response.write=(b'Ok')
-        self.send_response(200)
-        self.end_headers()
-        
         params = dict([p.split('=') for p in body.decode('utf-8').split('&')])
         control.add_nodes(params)
-
+        
+        self.send_response(200)
+        self.end_headers()
 
 if __name__ == "__main__":
     try:
