@@ -821,8 +821,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         # response.write(body)
         # self.wfile.write(response.getvalue())
         # print(self.raw_requestline)
-        print("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
-            str(self.path), str(self.headers), body.decode('utf-8'))
+        # print("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
+        #     str(self.path), str(self.headers), body.decode('utf-8'))
         
         params = dict([p.split('=') for p in body.decode('utf-8').split('&')])
         control.add_nodes(params)
