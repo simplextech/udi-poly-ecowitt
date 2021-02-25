@@ -813,8 +813,8 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
     def do_POST(self):
         content_length = int(self.headers['Content-Length'])
         body = self.rfile.read(content_length)
-        # self.send_response(200)
-        # self.end_headers()
+        self.send_response(200)
+        self.end_headers()
         # response = BytesIO()
         # response.write(b'This is POST request. ')
         # response.write(b'Received: ')
@@ -826,7 +826,6 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
         
         params = dict([p.split('=') for p in body.decode('utf-8').split('&')])
         control.add_nodes(params)
-
 
 if __name__ == "__main__":
     try:
